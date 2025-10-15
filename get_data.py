@@ -24,15 +24,16 @@ class analytics_functions:
             df["Ticker"] = ticker
             all_data.append(df)
 
-        self.data = pd.concat(all_data)
+        self.data = pd.concat(all_data, axis=1, keys=self.tickers)
         self.data.reset_index(inplace=True)
 
         self.data.columns = [
             f"{col[0].lower().replace(' ', '_')}_{col[1]}" if isinstance(col, tuple) else str(col).lower().replace(" ", "_")
             for col in self.data.columns
             ]
+        # print(f"Fetched data for {len(self.tickers)} tickers.")
 
-        print(f"Fetched data for {len(self.tickers)} tickers.")
+
         return self.data
 
 
