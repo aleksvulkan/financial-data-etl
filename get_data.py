@@ -31,8 +31,9 @@ class analytics_functions:
             f"{col[0].lower().replace(' ', '_')}_{col[1]}" if isinstance(col, tuple) else str(col).lower().replace(" ", "_")
             for col in self.data.columns
             ]
+        # print(f"Fetched data for {len(self.tickers)} tickers.")
 
-        print(f"Fetched data for {len(self.tickers)} tickers.")
+
         return self.data
 
 
