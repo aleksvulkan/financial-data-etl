@@ -24,7 +24,7 @@ class analytics_functions:
             df["Ticker"] = ticker
             all_data.append(df)
 
-        self.data = pd.concat(all_data)
+        self.data = pd.concat(all_data, axis=1, keys=self.tickers)
         self.data.reset_index(inplace=True)
 
         self.data.columns = [
