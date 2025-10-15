@@ -4,7 +4,7 @@ Built using **Python, yfinance, pandas, and SQLAlchemy**.
 
 ---
 
-### ⚙️ Features
+### Features
 - Fetches daily stock data from Yahoo Finance  
 - Cleans and standardizes the data for SQL storage  
 - Saves data into a SQLite database (`market_data.db`)  
@@ -13,7 +13,7 @@ Built using **Python, yfinance, pandas, and SQLAlchemy**.
 
 ---
 
-### 🧩 Tech Stack
+### Tech Stack
 - **Python 3.10+**
 - `pandas`
 - `yfinance`
@@ -22,7 +22,7 @@ Built using **Python, yfinance, pandas, and SQLAlchemy**.
 
 ---
 
-### 📈 Usage
+### Usage
 ```bash
 # Clone the repo
 git clone https://github.com/<your-username>/financial-data-etl.git
@@ -30,3 +30,4 @@ cd financial-data-etl
 
 # Install dependencies
 pip install -r requirements.txt
+
