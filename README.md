@@ -25,9 +25,10 @@ Built using **Python, yfinance, pandas, and SQLAlchemy**.
 ### Usage
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/financial-data-etl.git
+git clone https://github.com/aleksvulkan/financial-data-etl.git
 cd financial-data-etl
 
 # Install dependencies
 pip install -r requirements.txt
+
 
