@@ -58,16 +58,16 @@ class analytics_functions:
 
         self.data = self.data \
             .dropna() \
+            .ffill() \
+            .bfill()
         
-        self.data.columns = [str(col).lower().replace(" ", "_") for col in self.data.columns]
-
         print("Data Cleaned")
         print("\n=== Data Summary ===")
         print(self.data.describe())
 
         return self.data
 
-    def to_sql(self, table_name="tickers_data"):
+    def to_sql(self, table_name="ticker_table"):
         """
         Creates a SQL database if database does not exist, else update.
         """
@@ -80,17 +80,23 @@ class analytics_functions:
         self.data.to_sql(table_name, engine, if_exists="replace", index=False)
         print(f"Data written to {self.db_name} in table '{table_name}'.")
 
-    def ETL(self):
+    def ETL(self, period="1mo", interval="1d", table_name="tickers_data"):
         """
         Extract, Transform Load using previous functions in order.
         """
+        print("\n Starting ETL process...")
+        self.fetch_live_data(period=period, interval=interval)
+        self.clean_data()
+        self.to_sql(table_name=table_name)
+        print("ETL process completed successfully.")
 
 
-
-
+"""
 tickers = ["AAPL", "SPY", "GLD"]
 af = analytics_functions(tickers)
 
 # Fetch one month of daily data for testing
 af.fetch_live_data()
 af.clean_data()
+af.to_sql()
+"""
